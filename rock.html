@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-    <link rel="stylesheet" href="rock.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock Paper Scissors Game</title>
+  <link rel="stylesheet" href="rock.css" />
 </head>
 <body>
-    <h2>Computer Choice:<span id="com-choice"></span></h2>
-    <h2 >Your Choice:<span id="my-choice"></span></h2>
-    <h2>Result:<span id="result"></span></h2>
-    
-    <div class="btn">
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissor</button>
+  <div class="game-container">
+    <h1>Rock ✊ Paper 📄 Scissors ✂️</h1>
+    <div class="scoreboard">
+      <h2>Computer: <span id="com-choice">❔</span></h2>
+      <h2>You: <span id="my-choice">❔</span></h2>
+      <h2>Result: <span id="result">-</span></h2>
+    </div>
 
-    <!-- //this is a commit -->
+    <div class="btn-container">
+      <button class="choice-btn rock" data-choice="rock">✊ Rock</button>
+      <button class="choice-btn paper" data-choice="paper">📄 Paper</button>
+      <button class="choice-btn scissors" data-choice="scissors">✂️ Scissors</button>
+    </div>
+  </div>
 
-</div>
-    <script src="rock.js"></script>
+  <script src="rock.js"></script>
 </body>
 </html>

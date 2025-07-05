@@ -1,7 +1,56 @@
-button {
-    background-color: rgb(15, 211, 15);
-    padding: 20px;
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
 }
-button:hover {
-    background-color: rgb(25, 173, 25);
+
+.game-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.scoreboard h2 {
+  margin: 10px 0;
+}
+
+.btn-container {
+  margin-top: 30px;
+}
+
+button.choice-btn {
+  padding: 15px 30px;
+  margin: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+button.choice-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Individual button colors */
+button.rock {
+  background-color: #f44336; /* red */
+}
+
+button.paper {
+  background-color: #2196f3; /* blue */
+}
+
+button.scissors {
+  background-color: #ff9800; /* orange */
 }

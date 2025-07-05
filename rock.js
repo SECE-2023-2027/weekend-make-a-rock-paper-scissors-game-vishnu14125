@@ -1,57 +1,41 @@
-let comChoice = document.getElementById('com-choice');
-let mychoice = document.getElementById('my-choice');
-let result = document.getElementById('result');
-let buttons = document.querySelectorAll('button');
+const comChoiceEl = document.getElementById('com-choice');
+const myChoiceEl = document.getElementById('my-choice');
+const resultEl = document.getElementById('result');
+const buttons = document.querySelectorAll('.choice-btn');
 
-buttons.forEach(buttons => buttons.addEventListener('click', (e) => {
-    mychoice.innerHTML =  e.target.id;
-    computer()
-}))
+const choices = ['rock', 'paper', 'scissors'];
+const emojiMap = {
+  rock: '✊',
+  paper: '📄',
+  scissors: '✂️'
+};
 
-function computer() {
-    const randomNumber =  Math.floor(Math.random()*3)+1;
-    if(randomNumber === 1)
-    {
-        comChoice.innerHTML = 'rock';
-    }
-    if(randomNumber === 2)
-    {
-        comChoice.innerHTML = 'paper';
-    }
-    if(randomNumber === 3)
-    {
-        comChoice.innerHTML = 'scissor';
-    }
-    checkresult()
-}
-function checkresult() {
-    if(comChoice.innerHTML === mychoice.innerHTML)
-    {
-        result.innerHTML = 'its a draw';
-    }
-    if(comChoice.innerHTML === 'rock' && mychoice.innerHTML === 'scissor')
-    {
-        result.innerHTML = 'You Lose';
-    }
-    if(comChoice.innerHTML === 'scissor' && mychoice.innerHTML === 'paper')
-    {
-        result.innerHTML = 'You Lose';
-    }
-    if(comChoice.innerHTML === 'paper' && mychoice.innerHTML === 'rock')
-    {
-        result.innerHTML = 'You Lose';
-    }
-    if(comChoice.innerHTML === 'scissor' && mychoice.innerHTML === 'rock')
-    {
-        result.innerHTML = 'You Win';
-    }
-    if(comChoice.innerHTML === 'paper' && mychoice.innerHTML === 'scissor')
-    {
-        result.innerHTML = 'You Win';
-    }
-    if(comChoice.innerHTML === 'rock' && mychoice.innerHTML === 'paper')
-    {
-        result.innerHTML = 'You Win';
-    }
+buttons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const userChoice = e.target.dataset.choice;
+    const computerChoice = getComputerChoice();
+
+    myChoiceEl.textContent = emojiMap[userChoice];
+    comChoiceEl.textContent = emojiMap[computerChoice];
+
+    const gameResult = checkResult(userChoice, computerChoice);
+    resultEl.textContent = gameResult;
+  });
+});
+
+function getComputerChoice() {
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
 
+function checkResult(user, computer) {
+  if (user === computer) return "It's a Draw!";
+
+  const winMap = {
+    rock: 'scissors',
+    paper: 'rock',
+    scissors: 'paper'
+  };
+
+  return winMap[user] === computer ? '🎉 You Win!' : '😢 You Lose!';
+}
